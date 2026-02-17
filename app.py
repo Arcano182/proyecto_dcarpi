@@ -4,13 +4,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def inicio():
-    # Página principal con el propósito del negocio (D´CARPI)
-    return render_template("index.html", empresa="D´CARPI", rubro="Salsas y Condimentos")
+    return render_template(
+        "index.html",
+        empresa="D´CARPI",
+        rubro="Salsas y Condimentos",
+        mensaje="Empresa especializada en la producción y distribución de salsas y condimentos de alta calidad."
+    )
 
-# Ruta dinámica adaptada al negocio
 @app.route('/producto/<nombre>')
 def producto(nombre):
-    # Mensaje coherente para el negocio
     return render_template("producto.html", nombre=nombre)
 
 if __name__ == '__main__':
